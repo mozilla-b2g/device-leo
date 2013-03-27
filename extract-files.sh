@@ -238,7 +238,7 @@ COMMON_WLAN="
 	"
 copy_files "$COMMON_WLAN" "system/etc/firmware/wlan/volans" "wifi"
 
-COMMON_ETC="AudioFilter.csv init.qcom.sdio.sh gps.conf"
+COMMON_ETC="AudioFilter.csv gps.conf"
 copy_files "$COMMON_ETC" "system/etc" "etc"
 
 COMMON_AUDIO="
