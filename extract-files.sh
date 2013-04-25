@@ -83,6 +83,7 @@ copy_file()
         adb pull /$2/$1 $PROPRIETARY_DEVICE_DIR/$3/$2
     else
         NAME=`basename ${ANDROIDFS_DIR}/$2/$1`
+        rm -f $PROPRIETARY_DEVICE_DIR/$3/$NAME
         cp ${ANDROIDFS_DIR}/$2/$NAME $PROPRIETARY_DEVICE_DIR/$3/$NAME
     fi
 
@@ -124,6 +125,7 @@ copy_local_files()
 }
 
 COMMON_LIBS="
+	lib*ty.so
 	libOmxAacDec.so
 	libOmxH264Dec.so
 	libOmxMp3Dec.so
@@ -205,7 +207,6 @@ COMMON_BINS="
 	qmuxd
 	qosmgr
 	radish
-	rmt_storage
 	sensord
 	"
 copy_files "$COMMON_BINS" "system/bin" ""
