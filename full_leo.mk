@@ -3,6 +3,7 @@ $(call inherit-product, device/qcom/common/common.mk)
 PRODUCT_COPY_FILES := \
   device/qcom/leo/touchscreen.idc:system/usr/idc/touch_mcs8000.idc \
   device/qcom/leo/media_profiles.xml:system/etc/media_profiles.xml \
+  device/qcom/leo/vold.fstab:system/etc/vold.fstab \
   device/qcom/msm7627a/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
 $(call inherit-product-if-exists, vendor/qcom/leo/leo-vendor-blobs.mk)
