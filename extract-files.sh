@@ -127,6 +127,12 @@ copy_local_files()
 COMMON_LIBS="
 	lib*ty.so
 	libOmxAacDec.so
+	libOmxAacEnc.so
+	libOmxAmrDec.so
+	libOmxAmrEnc.so
+	libOmxAmrRtpDec.so
+	libOmxAmrwbDec.so
+	libOmxMpeg4Dec.so
 	libOmxH264Dec.so
 	libOmxMp3Dec.so
 	libOmxVidEnc.so
