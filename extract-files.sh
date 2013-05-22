@@ -17,8 +17,17 @@
 DEVICE=leo
 MANUFACTURER=qcom
 
-if [[ -z "${ANDROIDFS_DIR}" && -d ../../../backup-${DEVICE}/system ]]; then
+if [[ -z "${ANDROIDFS_DIR}" ]]; then
     ANDROIDFS_DIR=../../../backup-${DEVICE}
+fi
+
+if [[ ! -d ../../../backup-${DEVICE}/system ]]; then
+    echo Backing up system partition to backup-${DEVICE}
+    mkdir -p ../../../backup-${DEVICE} &&
+    adb root &&
+    sleep 1 &&
+    adb wait-for-device &&
+    adb pull /system ../../../backup-${DEVICE}/system
 fi
 
 if [[ -z "${ANDROIDFS_DIR}" ]]; then
@@ -27,12 +36,6 @@ if [[ -z "${ANDROIDFS_DIR}" ]]; then
 else
     echo Pulling files from ${ANDROIDFS_DIR}
     DEVICE_BUILD_ID=`cat ${ANDROIDFS_DIR}/system/build.prop | grep ro.build.display.id | sed -e 's/ro.build.display.id=//' | tr -d '\n\r'`
-fi
-
-if [[ ! -d ../../../backup-${DEVICE}/system  && -z "${ANDROIDFS_DIR}" ]]; then
-    echo Backing up system partition to backup-${DEVICE}
-    mkdir -p ../../../backup-${DEVICE} &&
-    adb pull /system ../../../backup-${DEVICE}/system
 fi
 
 BASE_PROPRIETARY_DEVICE_DIR=vendor/$MANUFACTURER/$DEVICE/proprietary
