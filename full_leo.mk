@@ -18,6 +18,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
   ro.fm.analogpath.supported=true \
   ro.moz.omx.hw.max_width=640 \
   ro.moz.omx.hw.max_height=480 \
+  ro.moz.ril.extra_int_2nd_call=true \
 
 ENABLE_LIBRECOVERY := true
 # Discard inherited values and use our own instead.
