@@ -1,5 +1,7 @@
 $(call inherit-product, device/qcom/common/common.mk)
 
+$(shell ln -sf $(abspath $(TOP))/device/qcom/msm7627a/system.prop $(LOCAL_PATH)/system.prop)
+
 PRODUCT_COPY_FILES := \
   device/qcom/leo/touchscreen.idc:system/usr/idc/touch_mcs8000.idc \
   device/qcom/leo/media_profiles.xml:system/etc/media_profiles.xml \
